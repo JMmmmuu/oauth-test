@@ -5,7 +5,8 @@ PORT = 3000
 
 ROUTES = [
     ("/", "index.html"),
-    ("/oauth/google/callback", "google_callback.html")
+    ("/oauth/kakao/callback", "kakao_callback.html"),
+    ("/oauth/google/callback", "google_callback.html"),
 ]
 
 web_dir = os.path.join(os.path.dirname(__file__), "web")

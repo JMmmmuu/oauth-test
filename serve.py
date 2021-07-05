@@ -28,7 +28,7 @@ class CustomSimpleHTTPRequestHandler(SimpleHTTPRequestHandler):
     def do_GET(self):
         print(self.path)
         for _path, _html in ROUTES:
-            if self.path == _path:
+            if self.path.split("?")[0] == _path:
                 self.path = _html
                 return SimpleHTTPRequestHandler.do_GET(self)
         

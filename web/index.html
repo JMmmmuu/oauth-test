@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Kakao OAuth</title>
+  <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+  <script>
+    // // SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정해 주세요.
+    Kakao.init("05da57ec1b9b7ab102de188d1044e73c");
+
+    // SDK 초기화 여부를 판단합니다.
+    console.log(Kakao.isInitialized());
+  </script>
+  <script src="index.js"></script>
+</head>
+<body>
+  <div>
+    <title>OAuth2.0 Test</title>
+  </div>
+
+  <div>
+    <a id="kakao-login-btn"></a>
+
+    <a href="http://developers.kakao.com/logout">Logout</a>
+
+    <script type="text/javascript">
+      Kakao.Auth.createLoginButton({
+        container: "#kakao-login-btn",
+        success: function (authObj) {
+          console.log(authObj);
+          success_login(
+            {
+              authCode: authObj.access_token,
+              provider: "KAKAO"}
+          );
+        },
+        fail: function (err) {
+          alert(JSON.stringify(err));
+        }
+      });
+    </script>
+  </div>
+</body>
+</html>

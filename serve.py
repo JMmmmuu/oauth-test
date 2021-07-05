@@ -4,8 +4,8 @@ from http.server import BaseHTTPRequestHandler, HTTPServer, SimpleHTTPRequestHan
 PORT = 3000
 
 ROUTES = [
-    ("/", "index"),
-    ("/callback", "callback")
+    ("/", "index.html"),
+    ("/callback", "callback.html")
 ]
 
 web_dir = os.path.join(os.path.dirname(__file__), "web")
@@ -22,11 +22,16 @@ class CustomSimpleHTTPRequestHandler(SimpleHTTPRequestHandler):
                 root = root_dir
                 break
 
-#         print(f"path: {path}")
+        print(f"path: {path}")
         return os.path.join(web_dir, path)
 
     def do_GET(self):
         print(self.path)
+        for _path, _html in ROUTES:
+            if self.path == _path:
+                self.path = _html
+                return SimpleHTTPRequestHandler.do_GET(self)
+        
         return super(CustomSimpleHTTPRequestHandler, self).do_GET()
 
 

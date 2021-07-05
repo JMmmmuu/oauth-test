@@ -6,10 +6,10 @@
   <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
   <script>
     // // SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정해 주세요.
-    Kakao.init("05da57ec1b9b7ab102de188d1044e73c");
+    // Kakao.init("05da57ec1b9b7ab102de188d1044e73c");
 
     // SDK 초기화 여부를 판단합니다.
-    console.log(Kakao.isInitialized());
+    // console.log(Kakao.isInitialized());
   </script>
   <script src="index.js"></script>
 </head>
@@ -19,34 +19,33 @@
   </div>
 
   <div>
-    <a id="kakao-login-btn"></a>
-
-    <a href="http://developers.kakao.com/logout">Logout</a>
+<!--    <a id="kakao-login-btn"></a>-->
 
     <div>
       <a href="https://kauth.kakao.com/oauth/authorize?client_id=0f31609a31d339973ad8ff528fe3f96d&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Foauth%2Fkakao%2Fcallback&response_type=code">Kakao Login</a>
+      <a href="http://developers.kakao.com/logout">Logout</a>
     </div>
 
     <div>
       <a href="https://accounts.google.com/o/oauth2/v2/auth?response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Foauth%2Fgoogle%2Fcallback&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile%20openid&client_id=308622014464-r6su6j2f9c229kp36fk5eva3rprmnrsr.apps.googleusercontent.com">Google Login</a>
     </div>
 
-    <script type="text/javascript">
-      Kakao.Auth.createLoginButton({
-        container: "#kakao-login-btn",
-        success: function (authObj) {
-          console.log(authObj);
-          success_login(
-            {
-              authCode: authObj.access_token,
-              provider: "KAKAO"}
-          );
-        },
-        fail: function (err) {
-          alert(JSON.stringify(err));
-        }
-      });
-    </script>
+<!--    <script type="text/javascript">-->
+<!--      Kakao.Auth.createLoginButton({-->
+<!--        container: "#kakao-login-btn",-->
+<!--        success: function (authObj) {-->
+<!--          console.log(authObj);-->
+<!--          success_login(-->
+<!--            {-->
+<!--              authCode: authObj.access_token,-->
+<!--              provider: "KAKAO"}-->
+<!--          );-->
+<!--        },-->
+<!--        fail: function (err) {-->
+<!--          alert(JSON.stringify(err));-->
+<!--        }-->
+<!--      });-->
+<!--    </script>-->
   </div>
 </body>
 </html>

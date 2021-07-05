@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8"/>
-  <title>callback</title>
+  <title>GOOGLE OAuth callback</title>
   <script src="/index.js"></script>
   <script>
     const queryString = window.location.search;
@@ -23,8 +23,9 @@
     success_login(
       {
         authCode: code,
-        provider: "GOOGLE"}
-      );
+        provider: "GOOGLE"
+      }
+    );
   </script>
 
 </body>

@@ -16,7 +16,6 @@ class CustomSimpleHTTPRequestHandler(SimpleHTTPRequestHandler):
     def translate_path(self, path):
         root = os.getcwd()
 
-#         print(f"path: {path}")
         for _path, root_dir in ROUTES:
             if path.startswith(_path):
                 path = path[len(_path):]
@@ -34,7 +33,6 @@ class CustomSimpleHTTPRequestHandler(SimpleHTTPRequestHandler):
                 return SimpleHTTPRequestHandler.do_GET(self)
         
         return super(CustomSimpleHTTPRequestHandler, self).do_GET()
-
 
 
 httpd = HTTPServer(("", PORT), CustomSimpleHTTPRequestHandler)

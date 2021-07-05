@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>callback</title>
+  <script src="/index.js"></script>
+  <script>
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const code = urlParams.get("code");
+    console.log("code: " + code);
+    console.log("scope: " + urlParams.get("scope"));
+    console.log("authuser: " + urlParams.get("authuser"));
+    console.log("prompt: " + urlParams.get("prompt"));
+  </script>
+
+</head>
+<body>
+  <div>
+    안녕
+  </div>
+  <script type="text/javascript">
+    success_login(
+      {
+        authCode: code,
+        provider: "GOOGLE"}
+      );
+  </script>
+
+</body>
+</html>

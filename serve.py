@@ -7,6 +7,7 @@ ROUTES = [
     ("/", "index.html"),
     ("/oauth/kakao/callback", "kakao_callback.html"),
     ("/oauth/google/callback", "google_callback.html"),
+    ("/oauth/apple/callback", "apple_callback.html"),
 ]
 
 web_dir = os.path.join(os.path.dirname(__file__), "web")
@@ -26,7 +27,6 @@ class CustomSimpleHTTPRequestHandler(SimpleHTTPRequestHandler):
         return os.path.join(web_dir, path)
 
     def do_GET(self):
-        print(self.path)
         for _path, _html in ROUTES:
             if self.path.split("?")[0] == _path:
                 self.path = _html
